@@ -1,13 +1,7 @@
-// does not work, not detected as JSON
-// const czrc = require('./.czrc')
+/* eslint-disable-next-line @typescript-eslint/no-var-requires */
+const { TYPE_NAMES } = require('commitizen-emoji/dist/constants/types');
 
-/* eslint-disable @typescript-eslint/no-var-requires */
-
-const fs = require('fs');
-const czrc = JSON.parse(fs.readFileSync('./.czrc').toString());
-
-const gitmojis = czrc.config.commitizenEmoji.types;
-const typeEnum = gitmojis.map((gitmoji) => gitmoji.name);
+const typeEnum = TYPE_NAMES.map(([_code, name]) => name);
 
 module.exports = {
   extends: ['gitmoji'],
